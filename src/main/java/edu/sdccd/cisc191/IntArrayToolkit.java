@@ -17,8 +17,16 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int sum(int[] a) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        try {
+            int sum;
+            for (int i = 0; i < (a.length + 1); i++ ) {
+                sum += a[i];
+            }
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Caught in sum() method in IntArrayToolkit.java");
+        }
+        
     }
 
     /**
@@ -26,8 +34,16 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null or empty
      */
     public static int max(int[] a) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        try {
+            int max = a[0];
+            for (int i = 0; i < (a.length + 1); i++) {
+                if (a[i] > max) {
+                    max = a[i];
+                }
+            }
+        catch (IllegalArgumentException e) {
+            System.out.println("Caught in max() method in IntArrayToolkit.java");
+        }
     }
 
     /**
@@ -35,8 +51,16 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int indexOf(int[] a, int target) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        try {
+            for (int i = 0; i < (a.length + 1); i++) {
+                if (a[i] == target) {
+                    return i;
+                }
+            }
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Caught in indexOf() method in IntArrayToolkit.java");
+        }
     }
 
     /**
@@ -46,6 +70,8 @@ public class IntArrayToolkit {
      */
     public static int[] copySortedAscending(int[] a) {
         // TODO: implement (hint: defensive copy + Arrays.sort)
-        throw new UnsupportedOperationException("Not implemented yet");
+        try {
+            ,,,
+        }
     }
 }
