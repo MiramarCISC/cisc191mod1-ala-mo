@@ -22,7 +22,7 @@ public class StudentArrayToolkit {
      */
     public static Student[] copySortedByGpaDesc(Student[] students) {
         // TODO: defensive copy + Arrays.sort with Comparator lambda
-        throw new UnsupportedOperationException("Not implemented yet");
+        Arrays.sort(students, (gpaOrder, nameOrder) )
     }
 
     /**

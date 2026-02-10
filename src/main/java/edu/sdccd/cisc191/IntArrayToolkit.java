@@ -18,15 +18,15 @@ public class IntArrayToolkit {
      */
     public static int sum(int[] a) {
         try {
-            int sum;
+            int addedArray;
             for (int i = 0; i < (a.length + 1); i++ ) {
-                sum += a[i];
+                addedArray = addedArray + a[i];
             }
+            return addedArray;
         }
         catch (IllegalArgumentException e) {
             System.out.println("Caught in sum() method in IntArrayToolkit.java");
         }
-        
     }
 
     /**
@@ -57,6 +57,7 @@ public class IntArrayToolkit {
                     return i;
                 }
             }
+            return -1;
         }
         catch (IllegalArgumentException e) {
             System.out.println("Caught in indexOf() method in IntArrayToolkit.java");
@@ -71,7 +72,12 @@ public class IntArrayToolkit {
     public static int[] copySortedAscending(int[] a) {
         // TODO: implement (hint: defensive copy + Arrays.sort)
         try {
-            ,,,
+            int[] arrayCopy;
+            for (int i = 0; i < (a.length + 1); i++) {
+                arrayCopy[i] = a[i];
+            }
+            arrayCopy = Arrays.sort(arrayCopy);
+            return arrayCopy;
         }
     }
 }
