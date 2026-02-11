@@ -41,6 +41,7 @@ public class IntArrayToolkit {
                     max = a[i];
                 }
             }
+        }
         catch (IllegalArgumentException e) {
             System.out.println("Caught in max() method in IntArrayToolkit.java");
         }
@@ -78,6 +79,9 @@ public class IntArrayToolkit {
             }
             arrayCopy = Arrays.sort(arrayCopy);
             return arrayCopy;
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Caught in copySortedAscending() method in IntArrayToolKit.java");
         }
     }
 }

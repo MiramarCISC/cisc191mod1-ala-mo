@@ -1,6 +1,7 @@
 package edu.sdccd.cisc191;
 
 import java.util.Random;
+import java.math.*;
 
 /**
  * Module 1 - Demo runner.
@@ -26,16 +27,15 @@ public class Main {
             Random rand = new Random(); 
 
             int nameIndex = rand.nextInt(names.length);
-            String randomName = names[index];
+            String randomName = names[nameIndex];
 
-            double randomGPA = rand.nextDouble() * 4.0;
+            double randomGPA = Math.round(rand.nextDouble() * 4.0 * 10.0) / 10.0;
 
             int randomID = rand.nextInt(90000) + 10000;
 
             Student firstStudent = new Student(randomName, randomGPA, randomID);
         //}
         
-        System.out.println("Module 1 Demo (implement me!)");
         System.out.println("Test, first student: " + firstStudent);
     }
 }
