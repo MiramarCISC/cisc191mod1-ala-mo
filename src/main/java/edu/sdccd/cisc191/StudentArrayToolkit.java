@@ -22,7 +22,14 @@ public class StudentArrayToolkit {
      */
     public static Student[] copySortedByGpaDesc(Student[] students) {
         // TODO: defensive copy + Arrays.sort with Comparator lambda
-        Arrays.sort(students, (gpaOrder, nameOrder) )
+        Student[] arrayCopy = Arrays.copyOf(students, students.length);
+        
+        Arrays.sort(arrayCopy,
+            Comparator.comparing(Student::getGpa).reversed()
+                .thenComparing(Student::getName)
+        );
+
+        return arrayCopy;
     }
 
     /**
@@ -31,7 +38,12 @@ public class StudentArrayToolkit {
      */
     public static Student findByIdLinear(Student[] students, int id) {
         // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].getId() == id) {
+                return students[i];
+            }
+        }
+        return null;
     }
 
     /**
@@ -42,6 +54,29 @@ public class StudentArrayToolkit {
      */
     public static Student[] topNByGpa(Student[] students, int n) {
         // TODO: validate n, sort copy, return first n in a new array
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (n < 0) {
+            throw new IllegalArgumentException("Caught in topNByGpa() method in StudentArrayToolkit.java");
+        }
+        
+        Student[] arrayCopy = Arrays.copyOf(students, students.length);
+        
+        Arrays.sort(arrayCopy,
+            Comparator.comparing(Student::getGpa).reversed()
+                .thenComparing(Student::getName)
+        );
+
+        if (n > students.length) {
+            return arrayCopy;
+        }
+
+        if (n == 0) {
+            return new Student[0];
+        }
+
+        Student[] nArray = new Student[n];
+        for (int i = 0; i < nArray.length; i++) {
+            nArray[i] = arrayCopy[i];
+        }
+        return nArray;
     }
 }

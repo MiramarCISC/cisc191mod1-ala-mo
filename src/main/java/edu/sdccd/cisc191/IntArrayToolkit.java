@@ -17,16 +17,14 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int sum(int[] a) {
-        try {
-            int addedArray;
-            for (int i = 0; i < (a.length + 1); i++ ) {
-                addedArray = addedArray + a[i];
-            }
-            return addedArray;
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in sum() method in IntArrayToolkit.java");
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("Caught in sum() method in IntArrayToolkit.java");
+        int addedArray = 0;
+        for (int i = 0; i < a.length; i++ ) {
+            addedArray += a[i];
         }
+        return addedArray;
     }
 
     /**
@@ -34,17 +32,16 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null or empty
      */
     public static int max(int[] a) {
-        try {
-            int max = a[0];
-            for (int i = 0; i < (a.length + 1); i++) {
-                if (a[i] > max) {
-                    max = a[i];
-                }
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in max() method in IntArrayToolkit.java");
+        }
+        int max = a[0];
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i];
             }
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("Caught in max() method in IntArrayToolkit.java");
-        }
+        return max;
     }
 
     /**
@@ -52,17 +49,15 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int indexOf(int[] a, int target) {
-        try {
-            for (int i = 0; i < (a.length + 1); i++) {
-                if (a[i] == target) {
-                    return i;
-                }
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in indexOf() method in IntArrayToolkit.java");
+        }
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == target) {
+                return i;
             }
-            return -1;
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("Caught in indexOf() method in IntArrayToolkit.java");
-        }
+        return -1;
     }
 
     /**
@@ -72,16 +67,13 @@ public class IntArrayToolkit {
      */
     public static int[] copySortedAscending(int[] a) {
         // TODO: implement (hint: defensive copy + Arrays.sort)
-        try {
-            int[] arrayCopy;
-            for (int i = 0; i < (a.length + 1); i++) {
-                arrayCopy[i] = a[i];
-            }
-            arrayCopy = Arrays.sort(arrayCopy);
-            return arrayCopy;
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in copySortedAscending() method in IntArrayToolkit.java");
         }
-        catch (IllegalArgumentException e) {
-            System.out.println("Caught in copySortedAscending() method in IntArrayToolKit.java");
-        }
+
+        int[] arrayCopy = Arrays.copyOf(a, a.length);
+
+        Arrays.sort(arrayCopy);
+        return arrayCopy;
     }
 }

@@ -23,19 +23,54 @@ public class Main {
             "Vincent", "Wush", "Yeon", "Zoshua"
         }; 
 
-        //for (int i = 0; i < 6; i++) {
-            Random rand = new Random(); 
+        // creating 6 students for the roster
+        Random rand = new Random(); 
 
+        Student[] roster = new Student[6];
+        for (int i = 0; i < (roster.length); i++) {
             int nameIndex = rand.nextInt(names.length);
             String randomName = names[nameIndex];
-
+            
             double randomGPA = Math.round(rand.nextDouble() * 4.0 * 10.0) / 10.0;
-
+    
             int randomID = rand.nextInt(90000) + 10000;
 
-            Student firstStudent = new Student(randomName, randomGPA, randomID);
-        //}
+            roster[i] = new Student(randomName, randomGPA, randomID);
+            }
         
-        System.out.println("Test, first student: " + firstStudent);
+        // original roster order
+        System.out.println("Original Roster Order: ");
+        for (int i = 0; i < roster.length; i++) {
+            System.out.println(" - " + roster[i]);
+        }
+
+        // sorted-by-GPA order
+        System.out.println("\nSorted By GPA: ");
+
+        Student[] sortByGpaArray = StudentArrayToolkit.copySortedByGpaDesc(roster);
+
+        for (int i = 0; i < sortByGpaArray.length; i++) {
+            System.out.println(" - " + sortByGpaArray[i]);
+        }
+
+        // returning the top n=3 students in roster
+        int n = 3;
+
+        System.out.println("\nTop " + n + " Students on Roster: ");
+
+        Student[] topNStudents = StudentArrayToolkit.topNByGpa(roster, n);
+
+        for (int i = 0; i < topNStudents.length; i++) {
+            System.out.println(" - " + topNStudents[i]);
+        }
+
+        // finding ids that exist and don't
+        int randomIndex = rand.nextInt(6);
+        System.out.println("\nSearching for ID: " + roster[randomIndex].getId());
+        System.out.println(StudentArrayToolkit.findByIdLinear(roster, roster[randomIndex].getId()));
+
+        int randomNonExistentID = rand.nextInt(90000) + 10000;
+        System.out.println("\nSearching for ID: " + randomNonExistentID);
+        System.out.println(StudentArrayToolkit.findByIdLinear(roster, randomNonExistentID));
     }
 }
