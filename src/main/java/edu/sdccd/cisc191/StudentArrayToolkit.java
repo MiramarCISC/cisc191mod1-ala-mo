@@ -21,18 +21,35 @@ public class StudentArrayToolkit {
      * Must not modify the original array.
      */
     public static Student[] copySortedByGpaDesc(Student[] students) {
-        // TODO: defensive copy + Arrays.sort with Comparator lambda
-        throw new UnsupportedOperationException("Not implemented yet");
+
+        Student[] copy = students.clone();  // defensive copy
+
+        Arrays.sort(copy, (a, b) -> {
+            int gpaCompare = Double.compare(b.getGpa(), a.getGpa());
+            if (gpaCompare != 0) {
+                return gpaCompare;
+            }
+            return a.getName().compareTo(b.getName());
+        });
+
+        return copy;
     }
 
-    /**
-     * Linear search for a student by id.
-     * Returns the Student if found, otherwise null.
-     */
-    public static Student findByIdLinear(Student[] students, int id) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
-    }
+
+        /**
+         * Linear search for a student by id.
+         * Returns the Student if found, otherwise null.
+         */
+        public static Student findByIdLinear(Student[] students, int id) {
+
+            for (Student s : students) {
+                if (s.getId() == id) {
+                    return s;
+                }
+            }
+
+            return null;
+        }
 
     /**
      * Returns a NEW array containing the top N students by GPA desc (ties: name asc).
@@ -41,7 +58,20 @@ public class StudentArrayToolkit {
      * @throws IllegalArgumentException if n < 0
      */
     public static Student[] topNByGpa(Student[] students, int n) {
-        // TODO: validate n, sort copy, return first n in a new array
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (n < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        Student[] sorted = copySortedByGpaDesc(students);
+
+        if (n == 0) {
+            return new Student[0];
+        }
+
+        if (n >= sorted.length) {
+            return sorted;
+        }
+
+        return Arrays.copyOf(sorted, n);
     }
 }

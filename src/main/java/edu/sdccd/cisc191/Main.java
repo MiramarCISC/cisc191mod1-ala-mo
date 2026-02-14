@@ -6,11 +6,63 @@ package edu.sdccd.cisc191;
  */
 public class Main {
     public static void main(String[] args) {
-        // TODO: Create at least 6 students and demonstrate:
-        // - original order
-        // - sorted-by-GPA order
-        // - topNByGpa with N=3
-        // - findByIdLinear with existing and non-existing id
-        System.out.println("Module 1 Demo (implement me!)");
+        Student[] students = {
+                new Student("Lexie", 3.8, 1),
+                new Student("Emily", 2.0, 2),
+                new Student("Ivy", 3.5, 3),
+                new Student("Sarahi", 3.2, 4),
+                new Student("Jolene", 4.0, 5),
+                new Student("Emilee", 3.9, 6)
+        };
+
+        // Original order
+        System.out.printf(
+                "Original Order of Students:\n%s\n\n",
+    getStudentsAsLines(students)
+        );
+
+    // Sorted by GPA
+    Student[] sortedStudents =
+            StudentArrayToolkit.copySortedByGpaDesc(students);
+
+        System.out.printf(
+                "Students Sorted by GPA:\n%s\n\n",
+    getStudentsAsLines(sortedStudents)
+        );
+
+    // Top 3 students
+    Student[] topThreeStudents =
+            StudentArrayToolkit.topNByGpa(students, 3);
+
+        System.out.printf(
+                "Top 3 Students by GPA:\n%s\n\n",
+    getStudentsAsLines(topThreeStudents)
+        );
+
+    // Find existing ID
+        System.out.printf(
+                "Student with ID 1: %s\n",
+                StudentArrayToolkit.findByIdLinear(students, 1)
+            );
+
+    // Find non-existing ID
+    Student result =
+            StudentArrayToolkit.findByIdLinear(students, 7);
+
+        System.out.printf(
+                "Student with non-existent ID 7: %s\n",
+    result == null ? "Not Found" : result
+        );
+
+        System.out.println("\nModule 1 Demo Complete!");
+}
+
+// Helper method for formatting output
+private static String getStudentsAsLines(Student[] students) {
+    StringBuilder sb = new StringBuilder();
+    for (Student s : students) {
+        sb.append(s).append("\n");
     }
+    return sb.toString();
+}
 }
