@@ -21,7 +21,7 @@ public class StudentArrayToolkit {
      * Must not modify the original array.
      */
     public static Student[] copySortedByGpaDesc(Student[] students) {
-        // TODO: defensive copy + Arrays.sort with Comparator lambda
+        // defensive copy + Arrays.sort with Comparator lambda
         Student[] arrayCopy = Arrays.copyOf(students, students.length);
         
         Arrays.sort(arrayCopy,
@@ -37,7 +37,7 @@ public class StudentArrayToolkit {
      * Returns the Student if found, otherwise null.
      */
     public static Student findByIdLinear(Student[] students, int id) {
-        // TODO: implement
+        // implement
         for (int i = 0; i < students.length; i++) {
             if (students[i].getId() == id) {
                 return students[i];
@@ -53,7 +53,7 @@ public class StudentArrayToolkit {
      * @throws IllegalArgumentException if n < 0
      */
     public static Student[] topNByGpa(Student[] students, int n) {
-        // TODO: validate n, sort copy, return first n in a new array
+        // validate n, sort copy, return first n in a new array
         if (n < 0) {
             throw new IllegalArgumentException("Caught in topNByGpa() method in StudentArrayToolkit.java");
         }

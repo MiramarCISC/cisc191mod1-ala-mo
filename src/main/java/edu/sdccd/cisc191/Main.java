@@ -1,7 +1,6 @@
 package edu.sdccd.cisc191;
 
 import java.util.Random;
-import java.math.*;
 
 /**
  * Module 1 - Demo runner.
@@ -9,7 +8,7 @@ import java.math.*;
  */
 public class Main {
     public static void main(String[] args) {
-        // TODO: Create at least 6 students and demonstrate:
+        // Create at least 6 students and demonstrate:
         // - original order
         // - sorted-by-GPA order
         // - topNByGpa with N=3

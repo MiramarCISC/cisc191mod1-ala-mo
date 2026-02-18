@@ -35,7 +35,7 @@ public class IntArrayToolkit {
         if (a == null) {
             throw new IllegalArgumentException("Caught in max() method in IntArrayToolkit.java");
         }
-        int max = a[0];
+        int max = a[1];
         for (int i = 0; i < a.length; i++) {
             if (a[i] > max) {
                 max = a[i];
@@ -66,7 +66,7 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int[] copySortedAscending(int[] a) {
-        // TODO: implement (hint: defensive copy + Arrays.sort)
+        // implement (hint: defensive copy + Arrays.sort)
         if (a == null) {
             throw new IllegalArgumentException("Caught in copySortedAscending() method in IntArrayToolkit.java");
         }
