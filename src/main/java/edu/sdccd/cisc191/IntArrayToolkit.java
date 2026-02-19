@@ -17,8 +17,14 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int sum(int[] a) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in sum() method in IntArrayToolkit.java");
+        }
+        int addedArray = 0;
+        for (int i = 0; i < a.length; i++ ) {
+            addedArray += a[i];
+        }
+        return addedArray;
     }
 
     /**
@@ -26,8 +32,16 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null or empty
      */
     public static int max(int[] a) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null || a.length == 0) {
+            throw new IllegalArgumentException("Caught in max() method in IntArrayToolkit.java");
+        }
+        int max = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i];
+            }
+        }
+        return max;
     }
 
     /**
@@ -35,8 +49,15 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int indexOf(int[] a, int target) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in indexOf() method in IntArrayToolkit.java");
+        }
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == target) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -45,7 +66,14 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null
      */
     public static int[] copySortedAscending(int[] a) {
-        // TODO: implement (hint: defensive copy + Arrays.sort)
-        throw new UnsupportedOperationException("Not implemented yet");
+        // implement (hint: defensive copy + Arrays.sort)
+        if (a == null) {
+            throw new IllegalArgumentException("Caught in copySortedAscending() method in IntArrayToolkit.java");
+        }
+
+        int[] arrayCopy = Arrays.copyOf(a, a.length);
+
+        Arrays.sort(arrayCopy);
+        return arrayCopy;
     }
 }
