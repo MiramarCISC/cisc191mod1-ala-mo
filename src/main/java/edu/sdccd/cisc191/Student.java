@@ -20,12 +20,12 @@ public class Student {
      */
     public Student(String name, double gpa, int id) {
         // validate and assign fields
+        if (name == null || name.trim().isEmpty() || gpa < 0.0 || gpa > 4.0 || id <= 0) {
+            throw new IllegalArgumentException("Not a valid input!");
+        }
         this.name = name;
         this.gpa = gpa;
         this.id = id;
-        if (name == null || gpa < 0.0 || gpa > 4.0 || id < 0) {
-            throw new IllegalArgumentException("Not a valid input!");
-        }
     }
 
     public String getName() { // retrieve name

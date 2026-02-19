@@ -32,11 +32,11 @@ public class IntArrayToolkit {
      * @throws IllegalArgumentException if a is null or empty
      */
     public static int max(int[] a) {
-        if (a == null) {
+        if (a == null || a.length == 0) {
             throw new IllegalArgumentException("Caught in max() method in IntArrayToolkit.java");
         }
-        int max = a[1];
-        for (int i = 0; i < a.length; i++) {
+        int max = a[0];
+        for (int i = 1; i < a.length; i++) {
             if (a[i] > max) {
                 max = a[i];
             }
